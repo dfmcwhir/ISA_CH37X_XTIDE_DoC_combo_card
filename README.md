@@ -3,6 +3,15 @@ ISA card with a CH375/CH376 Chip or module, XTIDE ROM chip, and a Disk on Chip m
 
 I designed this card for my personal use with the intended purpose of being able to use it to be able to quickly boot-up, setup and/or troubleshoot older 8088-386 DOS computers. I have been using this card for awhile and I like it. I'm posting this here in case anybody else wants to try it or experiment with it. I'm not a professional anything so there my be hardware, firmware, and/or SW bugs.
 
+<b>Parts:</b>
+  - The pcb can be obtained from PCBway here:
+<a href="https://www.pcbway.com/project/shareproject/ISA_Card_with_XTIDE_ROM_Disk_on_Chip_USB_8e0c1eca.html"><img src="https://www.pcbway.com/project/img/images/frompcbway-1220.png" alt="PCB from PCBWay" /></a>
+or whatever pcb supplier you choose.
+  - The DoC module is obsolete but can be found on ebay.
+  - The Ch375 or Ch376 can be found on Aliexpress
+
+<br><br>
+
 <b>SW1:</b>
 - SW1.1 ON = Disables USB hardware. Not currently implemented, see Known Issues
 - SW1.2 ON = Disables the DoC module. This can be useful if you don't want it to boot from the DoC or because of an address conflict

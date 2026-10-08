@@ -1,0 +1,54 @@
+Name       DOC_ROM_DEC;
+Date        2026-05-04;
+Revision    1;
+Designer    dfm;
+Company     ;
+Assembly    ;
+Location    ;
+Device      g16v8;
+PartNo	;
+
+/** Inputs **/
+pin 1= a13 ;
+pin 2= a14 ;
+pin 3= a15 ;
+pin 4= a16 ;
+pin 5= a17 ;
+pin 6= a18 ;
+pin 7= a19 ;
+pin 8  = DOCdis ;
+pin 9  = ROMdis ;
+pin 11 = DOCaddr1 ;
+pin 12 = DOCaddr2 ;
+pin 13 = ROMaddr1 ;
+pin 14 = ROMaddr2 ; 
+
+/** Outputs **/
+pin 17 = DOCen ;
+pin 18 = ROMen ;
+/** Declarations and Intermediate Variable Definitions  **/
+/** base address sets the range in Cxxxx to Dxxxx **/
+baseaddr = !a19 # !a18 # a17;
+/** ROMaddr Jmp1 = 1 (OFF), Jmp2 = 1 (OFF). Address = C0000 **/
+ROMseladdr0 = baseaddr # a16 # a15 # !ROMaddr1 # !ROMaddr2;
+/** ROMaddr Jmp1 = 0 (ON), Jmp2 = 1 (OFF). Address = C8000 **/
+ROMseladdr1 = baseaddr # a16 # !a15 # ROMaddr1 # !ROMaddr2;
+/** ROMaddr Jmp1 = 1 (OFF), Jmp2 = 0 (ON). Address = D0000 **/
+ROMseladdr2 = baseaddr # !a16 # a15 # !ROMaddr1 # ROMaddr2;
+/** ROMaddr Jmp1 = 0 (ON), Jmp2 = 0 (ON). Address = D8000 **/
+ROMseladdr3 = baseaddr # !a16 # !a15 # ROMaddr1 # ROMaddr2;
+
+/** DOCaddr Jmp1 = 1 (OFF), Jmp2 = 1 (OFF). Address = C0000 **/
+DOCseladdr0 = baseaddr # a16 # a15 # a14 # a13 # !DOCaddr1 # !DOCaddr2;
+/** DOCaddr Jmp1 = 0 (ON), Jmp2 = 1 (OFF). Address = C8000 **/
+DOCseladdr1 = baseaddr # a16 # !a15 # a14 # a13 # DOCaddr1 # !DOCaddr2;
+/** DOCaddr Jmp1 = 1 (OFF), Jmp2 = 0 (ON). Address = D0000 **/
+DOCseladdr2 = baseaddr # !a16 # a15 # a14 # a13 # !DOCaddr1 # DOCaddr2;
+/** DOCaddr Jmp1 = 0 (ON), Jmp2 = 0 (ON). Address = D8000 **/
+DOCseladdr3 = baseaddr # !a16 # !a15 # a14 # a13 # DOCaddr1 # DOCaddr2;
+
+!DOCen = (!DOCseladdr0 # !DOCseladdr1 # !DOCseladdr2 # !DOCseladdr3) & DOCdis;
+!ROMen = (!ROMseladdr0 # !ROMseladdr1 # !ROMseladdr2 # !ROMseladdr3) & ROMdis;
+
+
+

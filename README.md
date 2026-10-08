@@ -1,2 +1,23 @@
 # ISA_CH37X_XTIDE_DoC_combo_card
 ISA card with a CH375/CH376 Chip or module, XTIDE ROM chip, and a Disk on Chip module.
+
+I designed this card for my personal use with the intended purpose of being able to use it to be able to quickly boot-up, setup and/or troubleshoot older 8088-386 DOS computers. I have been using this card for awhile and I like it. I'm not a professional anything so there my be hardware, firmware, and/or SW bugs.
+
+
+Known issues:
+ * Rev0 of this card had a defect where the MEMr and MEMw lines were swapped at the ISA connected. The card worked after bodging those connections. This was fixed in Rev1, which is what is uploaded here, so this USED to be and issue but should be fine now<br>
+<br>
+ * The USB disable switch is connected, but not implemented in the USB address decoding PLD yet, so it doesn't actually disable anything. The PLD <br><br>
+
+ * The USB address is hard coded as 0260h in the PLD, it can be changed by requires re-programming that chip.
+
+ * The XTIDE has to be a 27256 chip. It is possible a 2764, 27128, 28256, etc could be used but you would have to check the datasheets/pinouts and bodge as necessary. Specifically, I think if a smaller chip is used, the VPP needs to be tied high, but you would have to double check.
+<br><br>
+ * The Disk on Chip module is specifically the M-Systems MD-2800-D08 chip. I'm not sure if other versions of this chip will work. Specifically, there is a chip that ends with something like -3V that is a 3V version of the chip and won't work.
+<br><br>
+ * The initial formatting of the DoC module was a challenge for me. At least on my system, the DoC was always detected first amd the computer would try to boot from it first, but if it isn't formatted yet, then it will fail. But if you boot it with the DoC disabled with the switch, then even after re-enabling it, the DoC software wouldn't detect the card. My solution was the slightly risking procedure of booting with the DoC disabled then after booting, re-moving the card, flipping the disable switch off, then re-installing the card with while the computer was still powered up. If I did that, then the DoC software would see the module and let me format it. All of this have been complicated by quirks of my system, like I needed this card installed at boot because I needed the XTIDE ROM installed to be able to boot at all. 
+<br><br>
+ * There are several options for a DOS driver for the CH375 chip, but if a CH376 is used, I was unable to find one. Eventually I was able to get AI to make a driver for the CH376. That driver is here: https://github.com/dfmcwhir/CH376DOS_driver
+<br><br>
+ * Regardless of which driver is used, this card has only been tested with the interrupt option on the driver set to 0 (disabled). To be honest there is part of the HW for this card that was copied from the original CH375 reference design that I don't understand. The PLD has the ability to make it so the INT from the CH375 can be read from the base address + 2 and it will be on D0. I don't know if with the CH735 stock driver it uses that port all the time, or if it uses it when the interrupt option on the driver is set to something other than 0, or ???. There is also another version of the CH375 reference board that specifically says it an interrupt version of the board, so maybe the driver interrupt value is only for that card? I know that my CH376 driver never uses that base address + 2 port, so I assume it will only work with the interrupt option set to 0.
+<br><br>

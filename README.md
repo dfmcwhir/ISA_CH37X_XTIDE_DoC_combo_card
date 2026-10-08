@@ -11,14 +11,14 @@ I designed this card for my personal use with the intended purpose of being able
 <br>
 <b>Addr Sel jumpers:</b>
 The Addr Sel jumpers can set the address of the XTIDE ROM and DoC to one of a few different values listed below. The specific addresses could be reprogrammed in the DOC_ROM_DEC pld.<br>
-- ROM#1 - OFF, ROM#2 - OFF --> ROM address = C0000h
-- ROM#1 - ON, ROM#2 - OFF --> ROM address = C8000h
-- ROM#1 - OFF, ROM#2 - ON --> ROM address = D0000h 
-- ROM#1 - ON, ROM#2 - ON --> ROM address = D8000h
-- DOC#1 - OFF, DOC#2 - OFF --> DOC address = C0000h
-- DOC#1 - ON, DOC#2 - OFF --> DOC address = C8000h
-- DOC#1 - OFF, DOC#2 - ON --> DOC address = D0000h 
-- DOC#1 - ON, DOC#2 - ON --> DOC address = D8000h
+  - ROM#1 - OFF, ROM#2 - OFF --> ROM address = C0000h
+  - ROM#1 - ON, ROM#2 - OFF --> ROM address = C8000h
+  - ROM#1 - OFF, ROM#2 - ON --> ROM address = D0000h 
+  - ROM#1 - ON, ROM#2 - ON --> ROM address = D8000h
+  - DOC#1 - OFF, DOC#2 - OFF --> DOC address = C0000h
+  - DOC#1 - ON, DOC#2 - OFF --> DOC address = C8000h
+  - DOC#1 - OFF, DOC#2 - ON --> DOC address = D0000h 
+  - DOC#1 - ON, DOC#2 - ON --> DOC address = D8000h
 
 
 <b>Known issues:</b>

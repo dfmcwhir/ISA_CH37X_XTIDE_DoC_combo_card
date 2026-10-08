@@ -3,6 +3,23 @@ ISA card with a CH375/CH376 Chip or module, XTIDE ROM chip, and a Disk on Chip m
 
 I designed this card for my personal use with the intended purpose of being able to use it to be able to quickly boot-up, setup and/or troubleshoot older 8088-386 DOS computers. I have been using this card for awhile and I like it. I'm not a professional anything so there my be hardware, firmware, and/or SW bugs.
 
+<b>SW1:</b>
+- SW1.1 ON = Disables USB hardware. Not currently implemented, see Known Issues
+- SW1.2 ON = Disables the DoC module. This can be useful if you don't want it to boot from the DoC or because of an address conflict
+- SW1.3 ON = Disables the XTIDE ROM. This can be useful on a system that doesn't need the XTIDE ROM and/or to avoid an address conflict
+
+<br>
+<b>Addr Sel jumpers:</b>
+The Addr Sel jumpers can set the address of the XTIDE ROM and DoC to one of a few different values listed below. The specific addresses could be reprogrammed in the DOC_ROM_DEC pld.<br>
+- ROM#1 - OFF, ROM#2 - OFF --> ROM address = C0000h
+- ROM#1 - ON, ROM#2 - OFF --> ROM address = C8000h
+- ROM#1 - OFF, ROM#2 - ON --> ROM address = D0000h 
+- ROM#1 - ON, ROM#2 - ON --> ROM address = D8000h
+- DOC#1 - OFF, DOC#2 - OFF --> DOC address = C0000h
+- DOC#1 - ON, DOC#2 - OFF --> DOC address = C8000h
+- DOC#1 - OFF, DOC#2 - ON --> DOC address = D0000h 
+- DOC#1 - ON, DOC#2 - ON --> DOC address = D8000h
+
 
 <b>Known issues:</b>
  * Rev0 of this card had a defect where the MEMr and MEMw lines were swapped at the ISA connected. The card worked after bodging those connections. This was fixed in Rev1, which is what is uploaded here, so this USED to be and issue but should be fine now.

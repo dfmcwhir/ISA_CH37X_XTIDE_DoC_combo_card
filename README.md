@@ -1,7 +1,7 @@
 # ISA_CH37X_XTIDE_DoC_combo_card
 ISA card with a CH375/CH376 Chip or module, XTIDE ROM chip, and a Disk on Chip module.
 
-I designed this card for my personal use with the intended purpose of being able to use it to be able to quickly boot-up, setup and/or troubleshoot older 8088-386 DOS computers. I have been using this card for awhile and I like it. I'm not a professional anything so there my be hardware, firmware, and/or SW bugs.
+I designed this card for my personal use with the intended purpose of being able to use it to be able to quickly boot-up, setup and/or troubleshoot older 8088-386 DOS computers. I have been using this card for awhile and I like it. I'm posting this here in case anybody else wants to try it or experiment with it. I'm not a professional anything so there my be hardware, firmware, and/or SW bugs.
 
 <b>SW1:</b>
 - SW1.1 ON = Disables USB hardware. Not currently implemented, see Known Issues
@@ -27,7 +27,7 @@ OR <br>
 OPTION #2 - Don't install any of the components above and instead install the 2x8 female header J4 and then use CH376 module such as https://www.aliexpress.us/item/3256807155423379.html. Double check the pinout of whatever module you buy to make sure it matches the labels on the card, keeping in mind the module is intended to be plugged in upside (component side) down. <br>
 <br>
 It is probable that a CH376 chip could be installed instead of the CH376 in option #1 or a CH375 module could be used instead of the CH376 module in option #2 if you can one with the correct pinout. This hasn't bee tested. <br>
-
+<br>
 <b>Known issues:</b>
  * Rev0 of this card had a defect where the MEMr and MEMw lines were swapped at the ISA connected. The card worked after bodging those connections. This was fixed in Rev1, which is what is uploaded here, so this USED to be and issue but should be fine now.
  * The USB disable switch is connected, but not implemented in the USB address decoding PLD yet, so it doesn't actually disable anything.

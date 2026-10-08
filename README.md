@@ -30,7 +30,7 @@ OPTION #2 - Don't install any of the components above and instead install the 2x
 It is probable that a CH376 chip could be installed instead of the CH376 in option #1 or a CH375 module could be used instead of the CH376 module in option #2 if you can one with the correct pinout. This hasn't bee tested. <br>
 <br>
 <b>Known issues:</b><br>
-  * Rev0 of this card had a defect where the MEMr and MEMw lines were swapped at the ISA connected. The card worked after bodging those connections. This was fixed in Rev1, which is what is uploaded here, so this USED to be and issue but should be fine now.
+  * Rev0 of this card had a defect where the MEMr and MEMw lines were swapped at the ISA connected. The card worked after bodging those connections. This was fixed in Rev1, which is what is uploaded here, so this USED to be an issue but should be fine now.
   * The USB disable switch is connected, but not implemented in the USB address decoding PLD yet, so it doesn't actually disable anything.
   * The USB address is hard coded as 0260h in the PLD, it can be changed by requires re-programming that chip.
   * The XTIDE has to be a 27256 chip. It is possible a 2764, 27128, 28256, etc could be used but you would have to check the datasheets/pinouts and bodge as necessary. Specifically, I think if a smaller chip is used, the VPP needs to be tied high, but you would have to double check.

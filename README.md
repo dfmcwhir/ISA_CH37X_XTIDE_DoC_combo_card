@@ -19,7 +19,14 @@ The Addr Sel jumpers can set the address of the XTIDE ROM and DoC to one of a fe
   - DOC#1 - ON, DOC#2 - OFF --> DOC address = C8000h<br>
   - DOC#1 - OFF, DOC#2 - ON --> DOC address = D0000h<br>
   - DOC#1 - ON, DOC#2 - ON --> DOC address = D8000h<br>
-
+<br>
+<b>CH375 or CH376:</b>
+There are two options for the USB port support that have been tested <br>
+OPTION #1 - Install a CH375A or B SMT chip and all the supporting components (U3, Y1, J3, R3, C1, C2, C3, C4, C6, C8) <br>
+OR <br>
+OPTION #2 - Don't install any of the components above and instead install the 2x8 female header J4 and then use CH376 module such as https://www.aliexpress.us/item/3256807155423379.html. Double check the pinout of whatever module you buy to make sure it matches the labels on the card, keeping in mind the module is intended to be plugged in upside (component side) down. <br>
+<br>
+It is probable that a CH376 chip could be installed instead of the CH376 in option #1 or a CH375 module could be used instead of the CH376 module in option #2 if you can one with the correct pinout. This hasn't bee tested. <br>
 
 <b>Known issues:</b>
  * Rev0 of this card had a defect where the MEMr and MEMw lines were swapped at the ISA connected. The card worked after bodging those connections. This was fixed in Rev1, which is what is uploaded here, so this USED to be and issue but should be fine now.
@@ -30,4 +37,5 @@ The Addr Sel jumpers can set the address of the XTIDE ROM and DoC to one of a fe
  * The initial formatting of the DoC module was a challenge for me. At least on my system, the DoC was always detected first amd the computer would try to boot from it first, but if it isn't formatted yet, then it will fail. But if you boot it with the DoC disabled with the switch, then even after re-enabling it, the DoC software wouldn't detect the card. My solution was the slightly risking procedure of booting with the DoC disabled then after booting, re-moving the card, flipping the disable switch off, then re-installing the card with while the computer was still powered up. If I did that, then the DoC software would see the module and let me format it. All of this may have been complicated by quirks of my system, like I needed this card installed at boot because I needed the XTIDE ROM installed to be able to boot at all.
  * There are several options for a DOS driver for the CH375 chip, but if a CH376 is used, I was unable to find one. Eventually I was able to get AI to make a driver for the CH376. That driver is here: https://github.com/dfmcwhir/CH376DOS_driver
  * Regardless of which driver is used, this card has only been tested with the interrupt option on the driver set to 0 (disabled). To be honest there is part of the HW for this card that was copied from the original CH375 reference design that I don't understand. The PLD has the ability to make it so the INT from the CH375 can be read from the base address + 2 and it will be on D0. I don't know if with the CH735 stock driver it uses that port all the time, or if it uses it when the interrupt option on the driver is set to something other than 0, or ???. There is also another version of the CH375 reference board that specifically says it an interrupt version of the board, so maybe the driver interrupt value is only for that card? I know that my CH376 driver never uses that base address + 2 port, so I assume it will only work with the interrupt option set to 0.
+ * The factor of the board doesn't match ISA specifications in terms of offset from the rear of the MB and mounting hole spacing. This was done as a cost saving measure to keep the board size < 100mm x 100mm. The result of that is the USB port maybe hard to plug thing into through the gaps in the card bracket on the computer.
 <br><br>

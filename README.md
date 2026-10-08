@@ -20,6 +20,7 @@ The Addr Sel jumpers can set the address of the XTIDE ROM and DoC to one of a fe
   - DOC#1 - OFF, DOC#2 - ON --> DOC address = D0000h<br>
   - DOC#1 - ON, DOC#2 - ON --> DOC address = D8000h<br>
 <br>
+
 <b>CH375 or CH376:</b>
 There are two options for the USB port support that have been tested <br>
 OPTION #1 - Install a CH375A or B SMT chip and all the supporting components (U3, Y1, J3, R3, C1, C2, C3, C4, C6, C8) <br>

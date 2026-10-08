@@ -5,7 +5,7 @@ I designed this card for my personal use with the intended purpose of being able
 
 <b>Parts:</b>
   - The pcb can be obtained from PCBway here:
-<a href="https://www.pcbway.com/project/shareproject/ISA_Card_with_XTIDE_ROM_Disk_on_Chip_USB_8e0c1eca.html"><img src="https://www.pcbway.com/project/img/images/frompcbway-1220.png" alt="PCB from PCBWay" /></a>
+<a href="https://www.pcbway.com/project/shareproject/ISA_Card_with_XTIDE_ROM_Disk_on_Chip_USB_8e0c1eca.html"></a>
 or whatever pcb supplier you choose.
   - The DoC module is obsolete but can be found on ebay.
   - The Ch375 or Ch376 can be found on Aliexpress
